@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="東京都中央区の山田税理士事務所。中小企業・個人事業主向けに、記帳代行、決算申告、節税相談、創業支援、資金調達まで一貫対応。初回相談無料。">
+<title>山田税理士事務所｜中小企業・個人事業主の税務サポート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<style>
+*, ::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --navy: #042C53; --navy-mid: #185FA5; --navy-light: #378ADD; --navy-pale: #E6F1FB;
+  --navy-muted: #85B7EB; --gold: #BA7517; --text: #1a1a1a; --text-muted: #666;
+  --text-light: #999; --border: rgba(0,0,0,0.1); --bg: #fff; --bg-surface: #f8f8f6;
+  --radius: 12px; --radius-sm: 8px;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+a { color: inherit; }
+nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--border); padding: 0 max(1.5rem, calc(50% - 560px)); }
+.nav-inner { display: flex; justify-content: space-between; align-items: center; height: 60px; }
+.logo { font-family: 'Shippori Mincho', serif; font-size: 16px; font-weight: 700; color: var(--navy); text-decoration: none; }
+.logo span { color: var(--navy-light); }
+.nav-links { display: flex; gap: 22px; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--navy-mid); }
+.nav-cta { background: var(--navy); color: #fff; border: none; padding: 8px 18px; border-radius: var(--radius-sm); font-size: 13px; font-family: inherit; cursor: pointer; transition: background 0.2s; text-decoration: none; }
+.nav-cta:hover { background: var(--navy-mid); }
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; bottom: 0; background: rgba(2,24,46,0.96); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 2rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 18px; color: #fff; text-decoration: none; padding: 14px 0; width: 100%; text-align: center; border-bottom: 0.5px solid rgba(255,255,255,0.1); transition: color 0.2s; }
+.mobile-menu a:hover { color: var(--navy-muted); }
+.mobile-menu .mobile-cta { margin-top: 16px; background: var(--navy-light); border-radius: var(--radius-sm); font-size: 15px; font-weight: 500; }
+.hero { background: var(--navy); padding: 84px max(1.5rem, calc(50% - 560px)); position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(55,138,221,0.22) 0%, transparent 70%); pointer-events: none; }
+.hero::after { content: ''; position: absolute; bottom: -120px; left: 45%; width: 280px; height: 280px; background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%); pointer-events: none; }
+.hero-inner { max-width: 680px; position: relative; z-index: 1; }
+.hero-badge { display: inline-block; font-size: 11px; letter-spacing: 0.1em; background: rgba(255,255,255,0.1); color: var(--navy-muted); padding: 5px 14px; border-radius: 20px; margin-bottom: 1.5rem; }
+.hero h1 { font-family: 'Shippori Mincho', serif; font-size: clamp(26px, 4vw, 42px); font-weight: 700; color: #fff; line-height: 1.5; margin-bottom: 1rem; }
+.hero p { font-size: 15px; color: var(--navy-pale); margin-bottom: 2rem; max-width: 560px; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary { background: var(--navy-light); color: #fff; border: none; padding: 13px 28px; border-radius: var(--radius-sm); font-size: 14px; font-family: inherit; font-weight: 500; cursor: pointer; transition: background 0.2s, transform 0.2s; text-decoration: none; display: inline-block; }
+.btn-primary:hover { background: #185FA5; transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--navy-pale); border: 0.5px solid rgba(255,255,255,0.3); padding: 13px 28px; border-radius: var(--radius-sm); font-size: 14px; font-family: inherit; cursor: pointer; transition: all 0.2s; text-decoration: none; display: inline-block; }
+.btn-ghost:hover { background: rgba(255,255,255,0.08); }
+.hero-note { font-size: 12px; color: var(--navy-muted); margin-top: 1rem; }
+.stats-section { background: var(--bg-surface); border-bottom: 0.5px solid var(--border); padding: 40px max(1.5rem, calc(50% - 560px)); }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.stat-item { text-align: center; padding: 1rem; border-right: 0.5px solid var(--border); }
+.stat-item:last-child { border-right: none; }
+.stat-num { font-size: 32px; font-weight: 700; color: var(--navy-mid); font-family: 'Shippori Mincho', serif; }
+.stat-num span { font-size: 16px; }
+.stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.stat-note { font-size: 10px; color: var(--text-light); margin-top: 2px; }
+section { padding: 80px max(1.5rem, calc(50% - 560px)); }
+.section-label { font-size: 11px; letter-spacing: 0.12em; color: var(--navy-light); text-transform: uppercase; margin-bottom: 8px; }
+.section-title { font-family: 'Shippori Mincho', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 700; margin-bottom: 8px; }
+.section-sub { font-size: 14px; color: var(--text-muted); max-width: 540px; }
+.reasons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 2.5rem; }
+.reason-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+.reason-card strong { display: block; font-size: 15px; margin-bottom: 8px; color: var(--navy); }
+.reason-card p { font-size: 13px; color: var(--text-muted); }
+.reason-icon { width: 38px; height: 38px; background: var(--navy-pale); color: var(--navy-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 2.5rem; }
+.service-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: box-shadow 0.2s, transform 0.2s; }
+.service-card:hover { box-shadow: 0 8px 24px rgba(4,44,83,0.08); transform: translateY(-2px); }
+.service-icon { width: 44px; height: 44px; background: var(--navy-pale); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.service-icon i { font-size: 20px; color: var(--navy-mid); }
+.service-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.service-card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+.price-bg { background: var(--bg-surface); }
+.price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 2.5rem; }
+.price-card { background: #fff; border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+.price-card.featured { border-color: rgba(24,95,165,0.35); box-shadow: 0 10px 30px rgba(4,44,83,0.08); }
+.price-card h3 { font-size: 15px; margin-bottom: 8px; color: var(--navy); }
+.price { font-family: 'Shippori Mincho', serif; font-size: 28px; font-weight: 700; color: var(--navy-mid); margin-bottom: 8px; }
+.price span { font-size: 13px; color: var(--text-muted); font-family: 'Noto Sans JP', sans-serif; font-weight: 400; }
+.price-card p { font-size: 13px; color: var(--text-muted); }
+.price-note { font-size: 12px; color: var(--text-light); margin-top: 1rem; }
+.profile-box { display: grid; grid-template-columns: 180px 1fr; gap: 28px; background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-top: 2.5rem; }
+.profile-photo { width: 180px; height: 180px; border-radius: var(--radius); background: linear-gradient(135deg, var(--navy-pale), #fff); display: flex; align-items: center; justify-content: center; color: var(--navy-mid); font-size: 54px; }
+.profile-role { font-size: 12px; color: var(--navy-mid); margin-bottom: 4px; }
+.profile-name { font-family: 'Shippori Mincho', serif; font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+.profile-text { font-size: 14px; color: var(--text-muted); }
+.profile-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
+.profile-tags span { font-size: 12px; background: var(--navy-pale); color: var(--navy-mid); padding: 4px 10px; border-radius: 20px; }
+.flow-bg { background: var(--navy); color: #fff; }
+.flow-bg .section-title { color: #fff; }
+.flow-bg .section-sub { color: var(--navy-muted); }
+.flow-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 2.5rem; position: relative; }
+.flow-steps::before { content: ''; position: absolute; top: 22px; left: 10%; right: 10%; height: 1px; background: rgba(255,255,255,0.15); }
+.flow-step { text-align: center; padding: 0 1rem; position: relative; }
+.step-circle { width: 44px; height: 44px; border-radius: 50%; background: var(--navy-light); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; margin: 0 auto 1rem; position: relative; z-index: 1; }
+.flow-step h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.flow-step p { font-size: 12px; color: var(--navy-muted); line-height: 1.6; }
+.voices-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 2.5rem; }
+.voice-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+.voice-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+.voice-name { font-size: 14px; font-weight: 500; }
+.voice-type { font-size: 12px; color: var(--text-muted); }
+.stars { color: var(--gold); font-size: 13px; margin-bottom: 8px; }
+.voice-text { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+.faq-list { margin-top: 2.5rem; display: grid; gap: 12px; }
+.faq-item { background: #fff; border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; }
+.faq-item h3 { font-size: 14px; color: var(--navy); margin-bottom: 6px; }
+.faq-item p { font-size: 13px; color: var(--text-muted); }
+.cta-band { background: var(--navy-pale); padding: 32px max(1.5rem, calc(50% - 560px)); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.cta-band h2 { font-family: 'Shippori Mincho', serif; font-size: 22px; color: var(--navy); }
+.cta-band p { font-size: 13px; color: var(--text-muted); }
+.contact-bg { background: var(--bg-surface); }
+.contact-inner { background: var(--navy); border-radius: var(--radius); padding: 3rem; text-align: center; max-width: 680px; margin: 2.5rem auto 0; }
+.contact-inner h3 { font-family: 'Shippori Mincho', serif; font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.contact-inner p { font-size: 14px; color: var(--navy-muted); margin-bottom: 1.5rem; }
+.contact-tel { font-family: 'Shippori Mincho', serif; font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+.contact-hours { font-size: 12px; color: var(--navy-muted); margin-bottom: 1.5rem; }
+.contact-form { margin-top: 2rem; text-align: left; }
+.form-group { margin-bottom: 12px; }
+.form-group label { display: block; font-size: 12px; color: var(--navy-pale); margin-bottom: 6px; }
+.form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px 14px; background: rgba(255,255,255,0.1); border: 0.5px solid rgba(255,255,255,0.2); border-radius: var(--radius-sm); color: #fff; font-family: inherit; font-size: 13px; outline: none; transition: border-color 0.2s; }
+.form-group select option { color: var(--text); }
+.form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--navy-light); }
+.form-group textarea { resize: vertical; min-height: 88px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.submit-btn { width: 100%; background: var(--navy-light); color: #fff; border: none; padding: 14px; border-radius: var(--radius-sm); font-size: 14px; font-family: inherit; font-weight: 500; cursor: pointer; margin-top: 8px; transition: background 0.2s; }
+.submit-btn:hover { background: #185FA5; }
+.privacy-note { font-size: 11px; color: var(--navy-muted); margin-top: 10px; text-align: center; }
+footer { background: #02182e; color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem; font-size: 12px; }
+@media (max-width: 800px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: block; }
+  .reasons-grid, .price-grid { grid-template-columns: 1fr; }
+  .profile-box { grid-template-columns: 1fr; }
+  .profile-photo { width: 100%; height: 160px; }
+  .cta-band { display: block; }
+  .cta-band .btn-primary { margin-top: 16px; }
+}
+@media (max-width: 680px) {
+  .hero { padding-top: 64px; padding-bottom: 64px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item:nth-child(3) { border-top: 0.5px solid var(--border); }
+  .stat-item:nth-child(4) { border-top: 0.5px solid var(--border); border-right: none; }
+  section { padding-top: 64px; padding-bottom: 64px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .flow-steps { grid-template-columns: 1fr 1fr; row-gap: 24px; }
+  .flow-steps::before { display: none; }
+  .voices-grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .contact-inner { padding: 2rem 1.25rem; }
+  .contact-tel { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">山田<span>税理士</span>事務所</a>
+    <ul class="nav-links">
+      <li><a href="#reasons">選ばれる理由</a></li>
+      <li><a href="#services">サービス</a></li>
+      <li><a href="#price">料金目安</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">無料相談</a>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <i class="ti ti-menu-2" id="hamburger-icon" style="font-size:22px; color:var(--navy);"></i>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#reasons" class="mobile-link">選ばれる理由</a>
+  <a href="#services" class="mobile-link">サービス</a>
+  <a href="#price" class="mobile-link">料金目安</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
+  <a href="#contact" class="mobile-link">お問い合わせ</a>
+  <a href="#contact" class="mobile-link mobile-cta">無料相談を申し込む</a>
+</div>
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">東京都中央区 ・ 創業20年 ・ 初回相談無料</div>
+    <h1>経理・税務の不安を減らし、<br>本業に集中できる体制をつくります</h1>
+    <p>中小企業・個人事業主向けに、記帳代行、決算申告、節税相談、創業支援、資金調達まで一貫対応。数字に強いパートナーとして、毎月の経営判断を支えます。</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">無料相談を申し込む</a>
+      <a href="#price" class="btn-ghost">料金目安を見る</a>
+    </div>
+    <div class="hero-note">オンライン相談対応｜原則2営業日以内に初回返信</div>
+  </div>
+</div>
+<div class="stats-section">
+  <div class="stats-grid">
+    <div class="stat-item"><div class="stat-num">450<span>社</span></div><div class="stat-label">累計支援実績</div><div class="stat-note">法人・個人事業主を含む</div></div>
+    <div class="stat-item"><div class="stat-num">20<span>年</span></div><div class="stat-label">業界経験</div><div class="stat-note">中小企業支援を中心に対応</div></div>
+    <div class="stat-item"><div class="stat-num">98<span>%</span></div><div class="stat-label">顧問契約継続率</div><div class="stat-note">直近3年間・当事務所調べ</div></div>
+    <div class="stat-item"><div class="stat-num">2<span>営業日</span></div><div class="stat-label">初回返信目安</div><div class="stat-note">内容により前後します</div></div>
+  </div>
+</div>
+<section id="reasons">
+  <div class="section-label">Reasons</div>
+  <div class="section-title">山田税理士事務所が選ばれる理由</div>
+  <div class="section-sub">税務処理だけでなく、経営に必要な数字の見える化までサポートします。</div>
+  <div class="reasons-grid">
+    <div class="reason-card"><div class="reason-icon"><i class="ti ti-user-check"></i></div><strong>専任担当制で相談しやすい</strong><p>毎回説明し直す手間を減らし、事業状況を理解した担当者が継続して対応します。</p></div>
+    <div class="reason-card"><div class="reason-icon"><i class="ti ti-cloud"></i></div><strong>クラウド会計に対応</strong><p>freee、マネーフォワードなどの導入・運用も支援。経理業務の効率化を進めます。</p></div>
+    <div class="reason-card"><div class="reason-icon"><i class="ti ti-report-money"></i></div><strong>資金繰りまで相談可能</strong><p>融資申請、事業計画、月次試算表の活用まで、経営判断に必要な数字を整えます。</p></div>
+  </div>
+</section>
+<section id="services">
+  <div class="section-label">Services</div>
+  <div class="section-title">主なサービス</div>
+  <div class="section-sub">規模や業種に合わせた柔軟なプランをご用意しています。</div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon"><i class="ti ti-file-invoice"></i></div><h3>記帳代行・決算申告</h3><p>日々の記帳から決算書作成、法人税・所得税申告まで一括対応します。</p></div>
+    <div class="service-card"><div class="service-icon"><i class="ti ti-chart-line"></i></div><h3>節税・税務相談</h3><p>合法的な節税策の提案と、万が一の税務調査への対応もサポートします。</p></div>
+    <div class="service-card"><div class="service-icon"><i class="ti ti-building-bank"></i></div><h3>創業・資金調達支援</h3><p>会社設立から融資申請書類の作成まで、スタートアップを力強く後押しします。</p></div>
+    <div class="service-card"><div class="service-icon"><i class="ti ti-users"></i></div><h3>給与計算・年末調整</h3><p>給与計算、年末調整、社会保険手続きに関する実務を正確・迅速に処理します。</p></div>
+  </div>
+</section>
+<section id="price" class="price-bg">
+  <div class="section-label">Price</div>
+  <div class="section-title">料金目安</div>
+  <div class="section-sub">ご相談内容、売上規模、記帳量に応じて正式なお見積もりをご提示します。</div>
+  <div class="price-grid">
+    <div class="price-card"><h3>個人事業主プラン</h3><div class="price">11,000<span>円〜 / 月</span></div><p>確定申告、記帳代行、節税相談を中心に、個人事業主の経理負担を軽減します。</p></div>
+    <div class="price-card featured"><h3>法人顧問プラン</h3><div class="price">22,000<span>円〜 / 月</span></div><p>月次相談、決算申告、資金繰り相談まで、継続的な経営サポートを行います。</p></div>
+    <div class="price-card"><h3>決算・申告のみ</h3><div class="price">88,000<span>円〜</span></div><p>年1回の決算申告、確定申告、スポット相談にも対応可能です。</p></div>
+  </div>
+  <div class="price-note">※表示価格は税込目安です。業種、売上規模、資料状況により変動します。</div>
+</section>
+<section id="profile">
+  <div class="section-label">Profile</div>
+  <div class="section-title">代表プロフィール</div>
+  <div class="section-sub">数字の処理だけで終わらせず、経営者が判断しやすい形で情報をお伝えします。</div>
+  <div class="profile-box">
+    <div class="profile-photo"><i class="ti ti-user"></i></div>
+    <div>
+      <div class="profile-role">代表税理士</div>
+      <div class="profile-name">山田 太郎</div>
+      <p class="profile-text">中小企業の税務顧問を中心に20年。飲食業、IT企業、小売業、士業など幅広い業種を支援。税務申告だけでなく、資金繰り、月次管理、クラウド会計の導入まで、事業の成長段階に合わせたサポートを大切にしています。</p>
+      <div class="profile-tags"><span>中小企業支援</span><span>創業融資</span><span>クラウド会計</span><span>税務調査対応</span></div>
+    </div>
+  </div>
+</section>
+<section id="flow" class="flow-bg">
+  <div class="section-label" style="color: var(--navy-muted);">Flow</div>
+  <div class="section-title">ご依頼の流れ</div>
+  <div class="section-sub">お問い合わせから契約まで最短1週間で対応できます。</div>
+  <div class="flow-steps">
+    <div class="flow-step"><div class="step-circle">1</div><h4>無料相談（30分）</h4><p>現状の課題や要望をヒアリング。オンライン・対面どちらも対応。</p></div>
+    <div class="flow-step"><div class="step-circle">2</div><h4>プラン提案・お見積もり</h4><p>最適なプランと明確な料金をご提示します。</p></div>
+    <div class="flow-step"><div class="step-circle">3</div><h4>契約・業務開始</h4><p>契約書締結後、翌月からサービス開始が可能です。</p></div>
+    <div class="flow-step"><div class="step-circle">4</div><h4>継続サポート</h4><p>担当者が固定されるため、状況を把握したまま長期サポート。</p></div>
+  </div>
+</section>
+<section id="voices">
+  <div class="section-label">Voices</div>
+  <div class="section-title">お客様の声</div>
+  <div class="section-sub">多くのお客様に長くご利用いただいています。</div>
+  <div class="voices-grid">
+    <div class="voice-card"><div class="voice-header"><div class="avatar" style="background:#E6F1FB; color:#185FA5;">TK</div><div><div class="voice-name">田中さん（飲食業・個人事業主）</div><div class="voice-type">記帳代行・確定申告</div></div></div><div class="stars">★★★★★</div><div class="voice-text">毎年の確定申告が不安でしたが、初めてでも丁寧に説明してもらえました。節税の提案も具体的で助かっています。</div></div>
+    <div class="voice-card"><div class="voice-header"><div class="avatar" style="background:#EAF3DE; color:#3B6D11;">SM</div><div><div class="voice-name">鈴木さん（IT企業・法人）</div><div class="voice-type">顧問契約・資金調達支援</div></div></div><div class="stars">★★★★★</div><div class="voice-text">創業時から相談に乗っていただき、融資申請も通りました。数字に強い経営アドバイスが特に頼りになります。</div></div>
+  </div>
+</section>
+<section id="faq" class="price-bg">
+  <div class="section-label">FAQ</div>
+  <div class="section-title">よくある質問</div>
+  <div class="section-sub">お問い合わせ前によくいただくご質問をまとめました。</div>
+  <div class="faq-list">
+    <div class="faq-item"><h3>Q. 初回相談は本当に無料ですか？</h3><p>A. はい、30分まで無料です。現在の状況を伺い、必要なサポート内容と費用感をお伝えします。</p></div>
+    <div class="faq-item"><h3>Q. オンライン相談は可能ですか？</h3><p>A. はい、ZoomやGoogle Meetで対応可能です。東京都外のお客様もご相談いただけます。</p></div>
+    <div class="faq-item"><h3>Q. 会計ソフトを使っていなくても依頼できますか？</h3><p>A. はい、導入前の状態からサポートできます。資料整理やクラウド会計の初期設定もご相談ください。</p></div>
+    <div class="faq-item"><h3>Q. 税務調査の連絡が来てからでも相談できますか？</h3><p>A. はい、対応可能です。状況を確認したうえで、必要な資料整理や当日の立ち会いについてご案内します。</p></div>
+  </div>
+</section>
+<div class="cta-band">
+  <div><h2>税務・経理の悩みを、早めに整理しませんか？</h2><p>初回相談では、現在の課題と必要なサポートをわかりやすく整理します。</p></div>
+  <a href="#contact" class="btn-primary">無料相談を予約する</a>
+</div>
+<section id="contact" class="contact-bg">
+  <div class="section-label">Contact</div>
+  <div class="section-title">お問い合わせ</div>
+  <div class="section-sub">初回相談は無料です。お気軽にご連絡ください。</div>
+  <div class="contact-inner">
+    <h3>まずはお気軽にご相談ください</h3>
+    <p>お電話またはフォームよりお問い合わせください。</p>
+    <div class="contact-tel"><i class="ti ti-phone" style="font-size:24px; vertical-align:-3px; margin-right:8px;"></i>03-1234-5678</div>
+    <div class="contact-hours">受付時間 平日 9:00〜18:00</div>
+    <div class="contact-form">
+      <div class="form-grid">
+        <div class="form-group"><label for="name">お名前</label><input id="name" type="text" placeholder="山田 太郎"></div>
+        <div class="form-group"><label for="company">会社名</label><input id="company" type="text" placeholder="株式会社〇〇"></div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group"><label for="email">メールアドレス</label><input id="email" type="email" placeholder="info@example.com"></div>
+        <div class="form-group"><label for="topic">ご相談項目</label>
+          <select id="topic"><option>選択してください</option><option>確定申告</option><option>法人決算</option><option>顧問契約</option><option>創業・会社設立</option><option>資金調達</option><option>税務調査</option><option>その他</option></select>
+        </div>
+      </div>
+      <div class="form-group"><label for="message">ご相談内容</label><textarea id="message" placeholder="現在の状況やご相談内容をご記入ください"></textarea></div>
+      <button class="submit-btn"><i class="ti ti-send" style="font-size:14px; vertical-align:-1px; margin-right:6px;"></i>送信する</button>
+      <div class="privacy-note">送信内容はお問い合わせ対応の目的でのみ使用します。</div>
+    </div>
+  </div>
+</section>
+<footer><p>© 2025 山田税理士事務所 ・ 東京都中央区銀座1-1-1</p></footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const icon = document.getElementById('hamburger-icon');
+  hamburger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+    icon.className = isOpen ? 'ti ti-x' : 'ti ti-menu-2';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', false);
+      icon.className = 'ti ti-menu-2';
+      document.body.style.overflow = '';
+    });
+  });
+</script>
+</body>
+</html>
