@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>焼き鳥BAR 蔵八 | 札幌すすきの</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sumi: #141210;
+    --sumi-light: #1e1a16;
+    --amber: #c8841a;
+    --amber-light: #e09b2a;
+    --amber-pale: #f0c870;
+    --washi: #f5f0e8;
+    --washi-dark: #e8e0d0;
+    --cream: #faf7f0;
+    --text-light: #f0ece4;
+    --text-muted: #b0a898;
+    --red-accent: #8b1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--sumi);
+    color: var(--text-light);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(20,18,16,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200,132,26,0.2);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  .nav-reserve {
+    background: var(--amber);
+    color: var(--sumi) !important;
+    padding: 0.4rem 1.2rem;
+    font-weight: 500 !important;
+    transition: background 0.3s !important;
+  }
+
+  .nav-reserve:hover { background: var(--amber-light) !important; color: var(--sumi) !important; }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: var(--amber);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(20,18,16,0.98);
+    z-index: 99;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid rgba(200,132,26,0.2);
+  }
+
+  .mobile-menu.open { display: block; }
+
+  .mobile-menu a {
+    display: block;
+    padding: 0.75rem 0;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: color 0.3s;
+  }
+
+  .mobile-menu a:hover { color: var(--amber); }
+
+  .mobile-reserve {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    background: var(--amber);
+    color: var(--sumi) !important;
+    padding: 0.75rem;
+    font-weight: 500;
+    border: none;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--sumi);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 30% 50%, rgba(200,132,26,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 70% 30%, rgba(139,26,26,0.04) 0%, transparent 60%);
+  }
+
+  /* 和紙テクスチャ風SVGパターン */
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8841a' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* 炎のアニメーション */
+  .flame-container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 3rem;
+    opacity: 0.15;
+  }
+
+  .flame {
+    width: 2px;
+    background: linear-gradient(to top, var(--amber), transparent);
+    animation: flicker 3s ease-in-out infinite;
+    transform-origin: bottom;
+  }
+
+  @keyframes flicker {
+    0%, 100% { height: 120px; opacity: 0.3; transform: scaleX(1) rotate(-1deg); }
+    25% { height: 180px; opacity: 0.5; transform: scaleX(0.8) rotate(2deg); }
+    50% { height: 140px; opacity: 0.4; transform: scaleX(1.2) rotate(-2deg); }
+    75% { height: 200px; opacity: 0.6; transform: scaleX(0.9) rotate(1deg); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem;
+    animation: fadeInUp 1.2s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-kamon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 2rem;
+    opacity: 0.7;
+  }
+
+  .hero-sub {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(3.5rem, 10vw, 7rem);
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title-en {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    letter-spacing: 0.5em;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-tagline {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    line-height: 2;
+    margin-bottom: 3rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: var(--sumi);
+    padding: 0.9rem 2.5rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--amber-light); }
+
+  .btn-secondary {
+    border: 1px solid rgba(200,132,26,0.4);
+    color: var(--amber);
+    padding: 0.9rem 2.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--amber);
+    background: rgba(200,132,26,0.08);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--amber), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── セクション共通 ── */
+  section { padding: 6rem 2rem; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.3;
+  }
+
+  .section-divider {
+    width: 40px;
+    height: 1px;
+    background: var(--amber);
+    margin: 1.5rem auto;
+    position: relative;
+  }
+
+  .section-divider::before, .section-divider::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border: 1px solid var(--amber);
+    border-radius: 50%;
+    top: -2.5px;
+  }
+
+  .section-divider::before { left: -10px; }
+  .section-divider::after { right: -10px; }
+
+  /* ── STORY ── */
+  #story {
+    background: var(--sumi-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #story::before {
+    content: '蔵';
+    position: absolute;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 20rem;
+    color: rgba(200,132,26,0.03);
+    right: -3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .story-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .story-text p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 2.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .story-text p:last-child { margin-bottom: 0; }
+
+  .story-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .highlight-number {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 2.5rem;
+    color: var(--amber);
+    opacity: 0.5;
+    line-height: 1;
+    flex-shrink: 0;
+    width: 2.5rem;
+    text-align: right;
+  }
+
+  .highlight-text h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+    color: var(--text-light);
+  }
+
+  .highlight-text p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  /* ── MENU ── */
+  #menu { background: var(--sumi); }
+
+  .menu-tabs {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid rgba(200,132,26,0.2);
+  }
+
+  .menu-tab {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+    margin-bottom: -1px;
+    font-family: 'Noto Serif JP', serif;
+  }
+
+  .menu-tab:hover { color: var(--amber); }
+
+  .menu-tab.active {
+    color: var(--amber);
+    border-bottom-color: var(--amber);
+  }
+
+  .menu-panel { display: none; max-width: 900px; margin: 0 auto; }
+  .menu-panel.active { display: block; }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .menu-item {
+    background: var(--sumi);
+    padding: 1.25rem 1.5rem;
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  .menu-item:hover { background: var(--sumi-light); }
+
+  .menu-item-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .menu-item-note {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+  }
+
+  .menu-item-price {
+    font-size: 0.85rem;
+    color: var(--amber);
+    letter-spacing: 0.05em;
+  }
+
+  .menu-note-banner {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── RESERVE ── */
+  #reserve {
+    background: var(--sumi-light);
+    text-align: center;
+  }
+
+  .reserve-options {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .reserve-card {
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid rgba(200,132,26,0.3);
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: all 0.3s;
+    display: block;
+  }
+
+  .reserve-card:hover {
+    border-color: var(--amber);
+    background: rgba(200,132,26,0.05);
+  }
+
+  .reserve-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .reserve-card h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .reserve-card p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* ── REVIEWS ── */
+  #reviews {
+    background: var(--sumi);
+    text-align: center;
+  }
+
+  .review-screenshot-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    border: 1px solid rgba(200,132,26,0.2);
+    overflow: hidden;
+  }
+
+  .review-placeholder {
+    background: var(--sumi-light);
+    padding: 4rem 2rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+
+  .review-placeholder-icon { font-size: 3rem; margin-bottom: 1rem; opacity: 0.4; }
+
+  .review-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--amber);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200,132,26,0.4);
+    padding-bottom: 2px;
+    transition: border-color 0.3s;
+  }
+
+  .review-link:hover { border-color: var(--amber); }
+
+  /* ── ACCESS ── */
+  #access {
+    background: var(--sumi-light);
+  }
+
+  .access-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .map-wrapper {
+    border: 1px solid rgba(200,132,26,0.2);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+  }
+
+  .map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    filter: grayscale(0.5) invert(0.05);
+  }
+
+  .access-info { display: flex; flex-direction: column; gap: 2rem; }
+
+  .info-block { border-left: 1px solid rgba(200,132,26,0.4); padding-left: 1.5rem; }
+
+  .info-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .info-value {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  .info-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.3rem;
+    line-height: 1.8;
+  }
+
+  .tel-link {
+    color: var(--amber);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: 'Shippori Mincho', serif;
+    letter-spacing: 0.1em;
+  }
+
+  .tel-link:hover { color: var(--amber-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0c0a08;
+    border-top: 1px solid rgba(200,132,26,0.15);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.5rem;
+    color: var(--amber);
+    letter-spacing: 0.2em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-sub {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--amber); }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(176,168,152,0.4);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    section { padding: 4rem 1.25rem; }
+
+    .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    #story::before { font-size: 10rem; opacity: 0.04; right: -1rem; }
+
+    .access-grid { grid-template-columns: 1fr; }
+    .map-wrapper { aspect-ratio: 16/9; }
+
+    .menu-tab { padding: 0.6rem 1rem; font-size: 0.75rem; }
+
+    .hero-title { letter-spacing: 0.08em; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .btn-primary, .btn-secondary { width: 220px; text-align: center; }
+  }
+
+  @media (max-width: 480px) {
+    .menu-tab { padding: 0.5rem 0.7rem; font-size: 0.7rem; letter-spacing: 0.08em; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="#hero">蔵八</a>
+  <ul class="nav-links">
+    <li><a href="#story">こだわり</a></li>
+    <li><a href="#menu">メニュー</a></li>
+    <li><a href="#access">アクセス</a></li>
+    <li><a href="#reviews">口コミ</a></li>
+    <li><a href="https://kurahachi.owst.jp" target="_blank" rel="noopener" class="nav-reserve">ご予約</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#story" onclick="closeMobile()">こだわり</a>
+  <a href="#menu" onclick="closeMobile()">メニュー</a>
+  <a href="#access" onclick="closeMobile()">アクセス</a>
+  <a href="#reviews" onclick="closeMobile()">口コミ</a>
+  <a href="https://kurahachi.owst.jp" target="_blank" rel="noopener" class="mobile-reserve">ご予約はこちら</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+
+  <div class="flame-container" aria-hidden="true">
+    <div class="flame" style="animation-delay:0s; height:100px;"></div>
+    <div class="flame" style="animation-delay:0.4s; height:140px;"></div>
+    <div class="flame" style="animation-delay:0.8s; height:80px;"></div>
+    <div class="flame" style="animation-delay:1.2s; height:160px;"></div>
+    <div class="flame" style="animation-delay:0.2s; height:120px;"></div>
+    <div class="flame" style="animation-delay:1.6s; height:90px;"></div>
+    <div class="flame" style="animation-delay:0.6s; height:150px;"></div>
+  </div>
+
+  <div class="hero-content">
+    <!-- 家紋風SVG -->
+    <svg class="hero-kamon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="30" cy="30" r="28" stroke="#c8841a" stroke-width="0.8" opacity="0.6"/>
+      <circle cx="30" cy="30" r="22" stroke="#c8841a" stroke-width="0.4" opacity="0.4"/>
+      <path d="M30 8 L30 52 M8 30 L52 30 M15 15 L45 45 M45 15 L15 45" stroke="#c8841a" stroke-width="0.4" opacity="0.3"/>
+      <text x="30" y="36" font-family="serif" font-size="16" fill="#c8841a" text-anchor="middle" opacity="0.8">蔵</text>
+    </svg>
+
+    <p class="hero-sub">Yakitori BAR</p>
+    <h1 class="hero-title">蔵八</h1>
+    <p class="hero-title-en">KURAHACHI</p>
+    <p class="hero-tagline">
+      炭火の香りと、北の大地の恵みと。<br>
+      札幌の夜に、ちょうどいい一杯を。
+    </p>
+    <div class="hero-buttons">
+      <a href="https://kurahachi.owst.jp" target="_blank" rel="noopener" class="btn-primary">ご予約</a>
+      <a href="#menu" class="btn-secondary">メニューを見る</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">scroll</div>
+</section>
+
+<!-- ── STORY ── -->
+<section id="story">
+  <div class="section-header">
+    <span class="section-label">Our Story</span>
+    <h2 class="section-title">蔵八のこだわり</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="story-grid">
+    <div class="story-text">
+      <p>「蔵」は日本の伝統と風格を、「八」は末広がりで縁起のいい数字を意味します。北海道の豊かな食材を炭火でじっくりと焼き上げ、訪れるすべての方に繁栄と笑顔をもたらしたいという願いを込めた名前です。</p>
+      <p>知床鶏、富良野和牛、新鮮な北海道の鮮魚——厳選した素材を、一本一本丁寧に。焼き鳥という日本の食文化を、BARという空間で現代に紡ぐ場所でありたいと思っています。</p>
+    </div>
+
+    <div class="story-highlights">
+      <div class="highlight-item">
+        <span class="highlight-number">一</span>
+        <div class="highlight-text">
+          <h3>北海道産の厳選素材</h3>
+          <p>知床鶏・富良野和牛・びえい和牛など、道産の素材にこだわっています。</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <span class="highlight-number">二</span>
+        <div class="highlight-text">
+          <h3>炭火の技</h3>
+          <p>遠赤外線の炭火でじっくりと焼き上げ、素材の旨みを最大限に引き出します。</p>
+        </div>
+      </div>
+      <div class="highlight-item">
+        <span class="highlight-number">三</span>
+        <div class="highlight-text">
+          <h3>深夜まで寄り添う空間</h3>
+          <p>平日は翌2時まで営業。お酒と焼き鳥で、ゆっくりと夜を楽しんでください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MENU ── -->
+<section id="menu">
+  <div class="section-header">
+    <span class="section-label">Menu</span>
+    <h2 class="section-title">メニュー</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="menu-tabs" role="tablist">
+    <button class="menu-tab active" onclick="showTab('kushi')" role="tab" aria-selected="true">串</button>
+    <button class="menu-tab" onclick="showTab('kaki')" role="tab">牡蠣</button>
+    <button class="menu-tab" onclick="showTab('sumi')" role="tab">炭</button>
+    <button class="menu-tab" onclick="showTab('sakana')" role="tab">鮮魚</button>
+    <button class="menu-tab" onclick="showTab('sakana2')" role="tab">肴・菜</button>
+    <button class="menu-tab" onclick="showTab('nabe')" role="tab">鍋</button>
+    <button class="menu-tab" onclick="showTab('sushi')" role="tab">寿司</button>
+    <button class="menu-tab" onclick="showTab('ippin')" role="tab">逸品・揚</button>
+    <button class="menu-tab" onclick="showTab('sweet')" role="tab">甘</button>
+  </div>
+
+  <!-- 串 -->
+  <div id="tab-kushi" class="menu-panel active">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">知床鶏もも</p><p class="menu-item-note">＋110円でゴルゴンゾーラに</p><p class="menu-item-price">320円</p></div>
+      <div class="menu-item"><p class="menu-item-name">知床ポークばら</p><p class="menu-item-note">＋110円でゴルゴンゾーラに</p><p class="menu-item-price">380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">うずらのたまご</p><p class="menu-item-price">200円</p></div>
+      <div class="menu-item"><p class="menu-item-name">ぽんぽち</p><p class="menu-item-price">250円</p></div>
+      <div class="menu-item"><p class="menu-item-name">砂肝</p><p class="menu-item-price">250円</p></div>
+      <div class="menu-item"><p class="menu-item-name">鶏皮</p><p class="menu-item-price">250円</p></div>
+      <div class="menu-item"><p class="menu-item-name">手羽先</p><p class="menu-item-price">380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">白レバー</p><p class="menu-item-price">250円</p></div>
+      <div class="menu-item"><p class="menu-item-name">ふらの和牛マルチョウ</p><p class="menu-item-price">380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">生ラム</p><p class="menu-item-price">480円</p></div>
+      <div class="menu-item"><p class="menu-item-name">つくね</p><p class="menu-item-note">月見 420円 / ゴルゴンゾーラチーズ 480円</p><p class="menu-item-price">380円〜</p></div>
+      <div class="menu-item"><p class="menu-item-name">肉巻き新生姜</p><p class="menu-item-price">380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">肉巻きレタス</p><p class="menu-item-price">380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">肉厚しいたけ</p><p class="menu-item-price">480円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+
+  <!-- 牡蠣 -->
+  <div id="tab-kaki" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">生牡蠣</p><p class="menu-item-price">680円</p></div>
+      <div class="menu-item"><p class="menu-item-name">焼き牡蠣</p><p class="menu-item-price">680円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+
+  <!-- 炭 -->
+  <div id="tab-sumi" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">縞ホッケ</p><p class="menu-item-price">1,980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">まとうだい</p><p class="menu-item-price">1,780円</p></div>
+      <div class="menu-item"><p class="menu-item-name">ほたてバター醤油</p><p class="menu-item-price">980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">せせりおろしポン酢</p><p class="menu-item-price">980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">厚切り牛タン</p><p class="menu-item-price">1,980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">びえい和牛ステーキ</p><p class="menu-item-note">ランプ・イチボ使用</p><p class="menu-item-price">2,980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">たらば蟹　足一本</p><p class="menu-item-price">5,980円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+
+  <!-- 鮮魚 -->
+  <div id="tab-sakana" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">お造り盛り合わせ</p><p class="menu-item-note">牡丹海老・本マグロ・貝・その他2種</p><p class="menu-item-price">1,480円</p></div>
+      <div class="menu-item"><p class="menu-item-name">本鮪　赤身刺し</p><p class="menu-item-price">1,480円</p></div>
+      <div class="menu-item"><p class="menu-item-name">本鮪　中トロ刺し</p><p class="menu-item-price">1,780円</p></div>
+      <div class="menu-item"><p class="menu-item-name">キングサーモン</p><p class="menu-item-price">1,380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">帆立</p><p class="menu-item-price">1,180円</p></div>
+      <div class="menu-item"><p class="menu-item-name">ほっき</p><p class="menu-item-price">1,280円</p></div>
+      <div class="menu-item"><p class="menu-item-name">つぶ</p><p class="menu-item-price">1,480円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+
+  <!-- 肴・菜 -->
+  <div id="tab-sakana2" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">茄子の揚げ浸し</p><p class="menu-item-price">580円</p></div>
+      <div class="menu-item"><p class="menu-item-name">パリパリピーマンと肉味噌</p><p class="menu-item-price">580円</p></div>
+      <div class="menu-item"><p class="menu-item-name">えいひれ炙り</p><p class="menu-item-price">580円</p></div>
+      <div class="menu-item"><p class="menu-item-name">トマトの土佐漬け</p><p class="menu-item-price">780円</p></div>
+      <div class="menu-item"><p class="menu-item-name">道産レバーのパテ　バケット添え</p><p class="menu-item-price">680円</p></div>
+      <div class="menu-item"><p class="menu-item-name">ふらの和牛を使った揚げポテトサラダ</p><p class="menu-item-price">980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">本鮪とアボカドのポキ</p><p class="menu-item-price">1,180円</p></div>
+      <div class="menu-item"><p class="menu-item-name">漬物盛り合わせ</p><p class="menu-item-price">850円</p></div>
+      <div class="menu-item"><p class="menu-item-name">知床ポークの角煮</p><p class="menu-item-price">1,180円</p></div>
+      <div class="menu-item"><p class="menu-item-name">豚しゃぶ豆腐さらだ</p><p class="menu-item-price">980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">北海道海鮮ラーメンサラダ</p><p class="menu-item-price">1,580円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+
+  <!-- 鍋 -->
+  <div id="tab-nabe" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">谷口ファーム　富良野和牛もつ鍋</p><p class="menu-item-note">醤油・味噌 / 〆：雑炊・ラーメン・チーズリゾット（各400円）</p><p class="menu-item-price">2,980円（2人前）/ 追加1人前 +1,480円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+
+  <!-- 寿司 -->
+  <div id="tab-sushi" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">本鮪赤身　三貫</p><p class="menu-item-price">1,480円</p></div>
+      <div class="menu-item"><p class="menu-item-name">本鮪中トロ　三貫</p><p class="menu-item-price">1,780円</p></div>
+      <div class="menu-item"><p class="menu-item-name">キングサーモン　三貫</p><p class="menu-item-note">サーモン・はらみ・炙り</p><p class="menu-item-price">1,380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">北貝づくし　三種</p><p class="menu-item-note">ほたて・ほっき・つぶ</p><p class="menu-item-price">1,380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">とろたく巻き</p><p class="menu-item-price">1,380円</p></div>
+      <div class="menu-item"><p class="menu-item-name">びえい和牛の炙り　三貫</p><p class="menu-item-price">1,980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">雲丹手巻き　三貫</p><p class="menu-item-price">1,980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">握り鮨　六貫盛り合わせ</p><p class="menu-item-price">2,980円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+
+  <!-- 逸品・揚 -->
+  <div id="tab-ippin" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">セセリぽん酢</p><p class="menu-item-price">980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">蟹味噌グラタン</p><p class="menu-item-price">1,280円</p></div>
+      <div class="menu-item"><p class="menu-item-name">山葵たらこ</p><p class="menu-item-price">680円</p></div>
+      <div class="menu-item"><p class="menu-item-name">焼きおにぎり</p><p class="menu-item-price">480円</p></div>
+      <div class="menu-item"><p class="menu-item-name">北海道蟹カレー</p><p class="menu-item-price">1,080円</p></div>
+      <div class="menu-item"><p class="menu-item-name">自家製いくらご飯</p><p class="menu-item-price">1,980円</p></div>
+      <div class="menu-item"><p class="menu-item-name">キンキの開き炭火焼</p><p class="menu-item-price">10,000円</p></div>
+      <div class="menu-item"><p class="menu-item-name">インカ目覚め　ポテトフライ</p><p class="menu-item-price">680円</p></div>
+      <div class="menu-item"><p class="menu-item-name">長いも唐揚げ</p><p class="menu-item-price">680円</p></div>
+      <div class="menu-item"><p class="menu-item-name">タコの唐揚げ</p><p class="menu-item-price">780円</p></div>
+      <div class="menu-item"><p class="menu-item-name">若鶏ザンギ</p><p class="menu-item-price">780円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+
+  <!-- 甘 -->
+  <div id="tab-sweet" class="menu-panel">
+    <div class="menu-grid">
+      <div class="menu-item"><p class="menu-item-name">アイスクリーム</p><p class="menu-item-note">バニラ・抹茶・ほうじ茶・きなこ餅</p><p class="menu-item-price">580円</p></div>
+    </div>
+    <p class="menu-note-banner">※ 表示価格はすべて税込です</p>
+  </div>
+</section>
+
+<!-- ── RESERVE ── -->
+<section id="reserve">
+  <div class="section-header">
+    <span class="section-label">Reservation</span>
+    <h2 class="section-title">ご予約</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="reserve-options">
+    <a href="https://kurahachi.owst.jp" target="_blank" rel="noopener" class="reserve-card">
+      <div class="reserve-icon">🌐</div>
+      <h3>WEBから予約</h3>
+      <p>24時間いつでも<br>ネット予約が可能です</p>
+    </a>
+    <a href="tel:011-272-3238" class="reserve-card">
+      <div class="reserve-icon">📞</div>
+      <h3>お電話で予約</h3>
+      <p>011-272-3238<br>営業時間内にお電話ください</p>
+    </a>
+  </div>
+</section>
+
+<!-- ── REVIEWS ── -->
+<section id="reviews">
+  <div class="section-header">
+    <span class="section-label">Reviews</span>
+    <h2 class="section-title">お客様の声</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="review-screenshot-wrapper">
+    <!--
+      ここにGoogle口コミのスクリーンショット画像を配置してください。
+      例: <img src="images/google-reviews.png" alt="Google口コミ" style="width:100%; display:block;">
+    -->
+    <div class="review-placeholder">
+      <div class="review-placeholder-icon">★</div>
+      <p>ここにGoogle口コミのスクリーンショットを<br>配置してください</p>
+      <p style="font-size:0.72rem; margin-top:0.5rem;">
+        Googleマップで「蔵八」を検索 → 口コミ画面をスクリーンショット → <br>
+        images/google-reviews.png として保存 → 上のコメントを解除してください
+      </p>
+    </div>
+  </div>
+
+  <a href="https://maps.google.com/?q=焼き鳥BAR+蔵八+札幌" target="_blank" rel="noopener" class="review-link">
+    Googleマップで口コミを見る →
+  </a>
+</section>
+
+<!-- ── ACCESS ── -->
+<section id="access">
+  <div class="section-header">
+    <span class="section-label">Access</span>
+    <h2 class="section-title">アクセス</h2>
+    <div class="section-divider"></div>
+  </div>
+
+  <div class="access-grid">
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2917.3!2d141.3507!3d43.0552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f0b2914f1c53c01%3A0x9b2c5e2b3e2d1234!2z5YWt5pyo6LeR5YuV5bqr44CB5Yms5YWI!5e0!3m2!1sja!2sjp!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="焼き鳥BAR 蔵八 地図">
+      </iframe>
+    </div>
+
+    <div class="access-info">
+      <div class="info-block">
+        <p class="info-label">Address</p>
+        <p class="info-value">北海道札幌市中央区<br>南３条西５丁目13-2</p>
+        <p class="info-sub">地下鉄南北線「すすきの」駅より徒歩約5分</p>
+      </div>
+
+      <div class="info-block">
+        <p class="info-label">Tel</p>
+        <a href="tel:011-272-3238" class="tel-link">011-272-3238</a>
+      </div>
+
+      <div class="info-block">
+        <p class="info-label">Hours</p>
+        <p class="info-value">月〜土</p>
+        <p class="info-sub">17:00 〜 翌2:00<br>料理・ドリンクL.O. 翌1:30</p>
+        <p class="info-value" style="margin-top:0.8rem;">日・祝日・祝前日</p>
+        <p class="info-sub">17:00 〜 翌0:00<br>料理・ドリンクL.O. 23:30</p>
+      </div>
+
+      <div class="info-block">
+        <p class="info-label">Closed</p>
+        <p class="info-value">不定休</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p class="footer-logo">蔵八</p>
+  <p class="footer-sub">YAKITORI BAR KURAHACHI</p>
+  <ul class="footer-links">
+    <li><a href="#story">こだわり</a></li>
+    <li><a href="#menu">メニュー</a></li>
+    <li><a href="#reserve">ご予約</a></li>
+    <li><a href="#access">アクセス</a></li>
+    <li><a href="#reviews">口コミ</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 焼き鳥BAR 蔵八. All rights reserved.</p>
+</footer>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.menu-tab').forEach(t => {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+  event.target.setAttribute('aria-selected', 'true');
+}
+
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', function() {
+  mobileMenu.classList.toggle('open');
+});
+
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+}
+
+// スクロールでナビを強調
+window.addEventListener('scroll', function() {
+  var nav = document.querySelector('nav');
+  if (window.scrollY > 80) {
+    nav.style.borderBottomColor = 'rgba(200,132,26,0.35)';
+  } else {
+    nav.style.borderBottomColor = 'rgba(200,132,26,0.2)';
+  }
+});
+</script>
+</body>
+</html>
