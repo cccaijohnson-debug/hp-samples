@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HPサンプル集 追加マニュアル</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --accent: #185FA5;
+  --accent-light: #E6F1FB;
+  --text: #1a1a1a;
+  --text-muted: #666;
+  --border: rgba(0,0,0,0.1);
+  --bg: #f5f4f0;
+  --bg-card: #fff;
+  --radius: 12px;
+}
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+}
+header {
+  background: #fff;
+  border-bottom: 0.5px solid var(--border);
+  padding: 0 max(1.5rem, calc(50% - 560px));
+}
+.header-inner {
+  display: flex; align-items: center; height: 60px; gap: 12px;
+}
+.site-title { font-size: 15px; font-weight: 700; }
+.site-title span { color: var(--accent); }
+.badge {
+  font-size: 11px; background: var(--accent-light); color: var(--accent);
+  padding: 3px 10px; border-radius: 20px; font-weight: 500;
+}
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 1.5rem 80px;
+}
+
+.intro {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 40px;
+}
+.intro h1 {
+  font-size: 20px; font-weight: 700; margin-bottom: 8px;
+}
+.intro p { font-size: 14px; color: var(--text-muted); }
+
+.step-section { margin-bottom: 40px; }
+.step-section h2 {
+  font-size: 13px; font-weight: 700; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.step-section h2::after {
+  content: ''; flex: 1; height: 0.5px; background: var(--border);
+}
+
+.step {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.step-num {
+  width: 28px; height: 28px; min-width: 28px;
+  background: var(--accent); color: #fff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700;
+}
+.step-content { flex: 1; }
+.step-content h3 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.step-content p { font-size: 13px; color: var(--text-muted); }
+
+.code-block {
+  background: #1a1a2e;
+  color: #e8e8e8;
+  border-radius: 8px;
+  padding: 16px 20px;
+  font-family: 'Menlo', 'Monaco', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 12px 0;
+  overflow-x: auto;
+  position: relative;
+}
+.code-block .comment { color: #6a9955; }
+.code-block .tag { color: #569cd6; }
+.code-block .attr { color: #9cdcfe; }
+.code-block .value { color: #ce9178; }
+.code-block .text { color: #e8e8e8; }
+
+.copy-btn {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(255,255,255,0.1); border: none;
+  color: #aaa; font-size: 11px; padding: 4px 10px;
+  border-radius: 4px; cursor: pointer; font-family: inherit;
+  transition: all 0.15s;
+}
+.copy-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+
+.highlight {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin: 12px 0;
+}
+.highlight strong { color: var(--accent); }
+
+.warning {
+  background: #FFF8E6;
+  border-left: 3px solid #F5A623;
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+  font-size: 13px;
+  margin: 12px 0;
+  color: #7a5a00;
+}
+
+.url-box {
+  background: var(--bg-card);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 18px;
+  font-size: 13px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin: 12px 0;
+}
+.url-box a { color: var(--accent); text-decoration: none; font-weight: 500; word-break: break-all; }
+.url-box a:hover { text-decoration: underline; }
+
+.tag-list {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;
+}
+.tag-item {
+  font-size: 12px; background: var(--accent-light); color: var(--accent);
+  padding: 4px 12px; border-radius: 20px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="site-title">HP<span>サンプル</span>集</div>
+    <div class="badge">追加マニュアル</div>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro">
+    <h1>自分のサイトをギャラリーに追加しよう</h1>
+    <p>HTMLファイルを1つ用意するだけで追加できます。GitHubのアカウントとリポジトリへの招待が必要です。</p>
+  </div>
+
+  <!-- STEP 0 -->
+  <div class="step-section">
+    <h2>準備</h2>
+
+    <div class="step">
+      <div class="step-num">0</div>
+      <div class="step-content">
+        <h3>GitHubアカウントを作る</h3>
+        <p>まだアカウントがない場合は作成してください。管理者にユーザー名を伝えてCollaboratorに招待してもらいましょう。</p>
+        <div class="url-box">
+          <a href="https://github.com/signup" target="_blank">https://github.com/signup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1〜2 -->
+  <div class="step-section">
+    <h2>Step 1 — HTMLファイルをアップロード</h2>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>リポジトリを開く</h3>
+        <p>以下のURLからリポジトリのトップページを開いてください。</p>
+        <div class="url-box">
+          <a href="https://github.com/cccaijohnson-debug/hp-samples" target="_blank">https://github.com/cccaijohnson-debug/hp-samples</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>ファイルをアップロード</h3>
+        <p>「ファイルを追加」→「ファイルをアップロード」をクリックし、自分のHTMLファイルをドラッグ&ドロップします。</p>
+        <p style="margin-top:8px;">アップロードできたら「変更をコミット」をクリックして保存します。</p>
+        <div class="highlight">
+          <strong>ファイル名のルール：</strong>半角英数字とハイフンのみ使ってください。<br>
+          例：<code>tanaka-beauty.html</code>、<code>suzuki-restaurant.html</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3〜4 -->
+  <div class="step-section">
+    <h2>Step 2 — index.htmlにカードを追記</h2>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>index.htmlを開いて編集する</h3>
+        <p>リポジトリの<code>index.html</code>をクリックし、右上の鉛筆アイコン（Edit）をクリックします。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>カードを追記する</h3>
+        <p><code>&lt;!-- 新しいサンプルはここにコピーして追加 --&gt;</code> という行を探して、その直上に以下のコードをコピペします。</p>
+
+        <div class="code-block" id="card-code">
+          <button class="copy-btn" onclick="copyCode()">コピー</button>
+<pre><span class="tag">&lt;a</span> <span class="attr">class</span>=<span class="value">"card"</span> <span class="attr">href</span>=<span class="value">"ファイル名.html"</span> <span class="attr">data-category</span>=<span class="value">"業種"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"card-thumb"</span> <span class="attr">style</span>=<span class="value">"background: #色コード;"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span</span> <span class="attr">style</span>=<span class="value">"font-size:40px;"</span><span class="tag">&gt;</span>絵文字<span class="tag">&lt;/span&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"card-body"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"card-tag"</span><span class="tag">&gt;</span>業種<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"card-title"</span><span class="tag">&gt;</span>サイト名<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"card-desc"</span><span class="tag">&gt;</span>サイトの説明文（1〜2文）<span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attr">class</span>=<span class="value">"card-footer"</span><span class="tag">&gt;</span>
+      <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="value">"card-date"</span><span class="tag">&gt;</span>2025-XX-XX<span class="tag">&lt;/span&gt;</span>
+      <span class="tag">&lt;span</span> <span class="attr">class</span>=<span class="value">"card-link"</span><span class="tag">&gt;</span>開く →<span class="tag">&lt;/span&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/a&gt;</span></pre>
+        </div>
+
+        <p style="font-size:13px; color: var(--text-muted); margin-bottom: 8px;">書き換える箇所：</p>
+        <table style="width:100%; font-size:13px; border-collapse:collapse;">
+          <tr style="border-bottom: 0.5px solid var(--border);">
+            <td style="padding: 8px 4px; font-weight:700; white-space:nowrap;">ファイル名.html</td>
+            <td style="padding: 8px 4px; color:var(--text-muted);">アップロードしたファイル名</td>
+          </tr>
+          <tr style="border-bottom: 0.5px solid var(--border);">
+            <td style="padding: 8px 4px; font-weight:700; white-space:nowrap;">業種</td>
+            <td style="padding: 8px 4px; color:var(--text-muted);">士業 / 飲食 / 美容 / 建設 / 医療 / その他</td>
+          </tr>
+          <tr style="border-bottom: 0.5px solid var(--border);">
+            <td style="padding: 8px 4px; font-weight:700; white-space:nowrap;">#色コード</td>
+            <td style="padding: 8px 4px; color:var(--text-muted);">サムネイルの背景色（例：#042C53）</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 4px; font-weight:700; white-space:nowrap;">絵文字</td>
+            <td style="padding: 8px 4px; color:var(--text-muted);">サイトのイメージに合う絵文字1つ</td>
+          </tr>
+        </table>
+
+        <div class="warning" style="margin-top:12px;">
+          ⚠️ 他のメンバーが同時に編集していると上書きされることがあります。編集前に確認しましょう。
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>「Commit changes」で保存</h3>
+        <p>右上の「Commit changes」をクリックして保存します。数秒〜1分でサイトに反映されます。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 業種タグ -->
+  <div class="step-section">
+    <h2>業種タグ一覧</h2>
+    <div style="background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 20px 24px;">
+      <p style="font-size:13px; color:var(--text-muted); margin-bottom:12px;">data-categoryとcard-tagには以下のいずれかを使ってください。</p>
+      <div class="tag-list">
+        <span class="tag-item">士業</span>
+        <span class="tag-item">飲食</span>
+        <span class="tag-item">美容</span>
+        <span class="tag-item">建設</span>
+        <span class="tag-item">医療</span>
+        <span class="tag-item">その他</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- リンク集 -->
+  <div class="step-section">
+    <h2>リンク集</h2>
+    <div style="background: var(--bg-card); border: 0.5px solid var(--border); border-radius: var(--radius); overflow:hidden;">
+      <div style="padding: 14px 20px; border-bottom: 0.5px solid var(--border); font-size:13px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="color:var(--text-muted);">ギャラリーサイト</span>
+        <a href="https://cccaijohnson-debug.github.io/hp-samples/" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:500;">開く →</a>
+      </div>
+      <div style="padding: 14px 20px; font-size:13px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="color:var(--text-muted);">GitHubリポジトリ</span>
+        <a href="https://github.com/cccaijohnson-debug/hp-samples" target="_blank" style="color:var(--accent); text-decoration:none; font-weight:500;">開く →</a>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function copyCode() {
+  const code = `<a class="card" href="ファイル名.html" data-category="業種">
+  <div class="card-thumb" style="background: #色コード;">
+    <span style="font-size:40px;">絵文字</span>
+  </div>
+  <div class="card-body">
+    <div class="card-tag">業種</div>
+    <div class="card-title">サイト名</div>
+    <div class="card-desc">サイトの説明文（1〜2文）</div>
+    <div class="card-footer">
+      <span class="card-date">2025-XX-XX</span>
+      <span class="card-link">開く →</span>
+    </div>
+  </div>
+</a>`;
+  navigator.clipboard.writeText(code).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = 'コピー済み✓';
+    setTimeout(() => btn.textContent = 'コピー', 2000);
+  });
+}
+</script>
+</body>
+</html>
